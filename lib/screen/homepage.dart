@@ -32,7 +32,7 @@ class _HomePageState extends State<HomePage> {
               lessonsText(),
               lessonsItems(context),
               challenges(),
-              challengeItems(context),
+              challengeItems(),
               //tryItems(context),
             ],
           ),
@@ -126,17 +126,17 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget challengeItems(BuildContext context) {
-    return SizedBox(
-      height: 5,
-        child: ListView.builder(
-          itemCount: 5,
-          physics: const NeverScrollableScrollPhysics(),
-          shrinkWrap: true,
-          itemBuilder: (context, index) => ListTile(
-            title: Text(" List $index"),
-          ),
-        ),
+  Widget challengeItems() {
+    return ListView.builder(
+      itemCount: 7,
+      physics: const NeverScrollableScrollPhysics(),
+      shrinkWrap: true,
+      itemBuilder: (context, index) => ListTile(
+        leading: const CircleAvatar(),
+        title: const Text(" 10 Days Challenge"),
+        subtitle: Text('Level $index'),
+        onTap: () {},
+      ),
     );
   }
 
