@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:uihomepage/widgets/grid_item.dart';
 import 'package:uihomepage/widgets/items_lessons.dart';
@@ -22,7 +21,6 @@ class _HomePageState extends State<HomePage> {
           foregroundColor: Colors.black,
           leading: const Icon(Icons.menu),
         ),
-
         ///body content
         body: SingleChildScrollView(
           child: Column(
@@ -135,6 +133,12 @@ class _HomePageState extends State<HomePage> {
       itemBuilder: (context, index) => Padding(
         padding: const EdgeInsets.all(2.0),
         child: ListTile(
+          shape: RoundedRectangleBorder(
+            side: BorderSide(
+              color: Colors.green.shade300,
+            ),
+            borderRadius: BorderRadius.circular(15.0),
+          ),
           hoverColor: Colors.blue,
           tileColor: Colors.black54,
           style: ListTileStyle.drawer,
