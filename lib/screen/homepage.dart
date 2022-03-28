@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:uihomepage/widgets/grid_item.dart';
 import 'package:uihomepage/widgets/items_lessons.dart';
@@ -95,7 +96,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget lessonsItems(BuildContext context){
+  Widget lessonsItems(BuildContext context) {
     return SizedBox(
       height: 200,
       child: ListView.builder(
@@ -131,18 +132,25 @@ class _HomePageState extends State<HomePage> {
       itemCount: 7,
       physics: const NeverScrollableScrollPhysics(),
       shrinkWrap: true,
-      itemBuilder: (context, index) => ListTile(
-        leading: const CircleAvatar(),
-        title: const Text(" 10 Days Challenge"),
-        subtitle: Text('Level $index'),
-        onTap: () {},
+      itemBuilder: (context, index) => Padding(
+        padding: const EdgeInsets.all(2.0),
+        child: ListTile(
+          hoverColor: Colors.blue,
+          tileColor: Colors.black54,
+          style: ListTileStyle.drawer,
+          contentPadding: const EdgeInsets.all(5),
+          leading: const CircleAvatar(),
+          title: const Text(" 10 Days Challenge"),
+          subtitle: Text('Level $index'),
+          onTap: () {},
+        ),
       ),
     );
   }
 
   Widget tryItems(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(15.0),
+      padding: const EdgeInsets.all(5),
       child: SizedBox(
           height: 100,
           width: double.infinity,
