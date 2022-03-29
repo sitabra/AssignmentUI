@@ -20,9 +20,10 @@ class ItemsLessons extends StatelessWidget {
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: const EdgeInsets.all(15.0),
+              padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
               child: Text(title,
               style: const TextStyle(fontSize: 20,color: Colors.white,fontStyle: FontStyle.italic, fontWeight: FontWeight.bold),
               ),

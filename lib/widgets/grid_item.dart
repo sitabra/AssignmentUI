@@ -15,7 +15,7 @@ class GridItem extends StatelessWidget {
         padding: const EdgeInsets.all(5.0),
         child: Container(
           width: 80,
-          height: 200,
+          height: 100,
           decoration: BoxDecoration(
             border: Border.all(),
             borderRadius: BorderRadius.circular(12),),
