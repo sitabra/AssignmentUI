@@ -32,7 +32,7 @@ class _HomePageState extends State<HomePage> {
               lessonsItems(context),
               challenges(),
               challengeItems(context),
-              //tryItems(context),
+              tryItems(context),
               //tryingItems(),
             ],
           ),
@@ -175,7 +175,21 @@ class _HomePageState extends State<HomePage> {
                         alignment: Alignment.center,
                         padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
                         child: FlatButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            showDialog(context: context, builder: (context){
+                              return AlertDialog(
+                                title: Text("Confirm"),
+                                actions: [
+                                  TextButton(
+                                    child: Text("OK"),
+                                    onPressed: () {
+                                      Navigator.pop(context);
+                                    },
+                                  ),
+                                ],
+                              );
+                            });
+                          },
                           color: Colors.orange,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10),

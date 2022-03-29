@@ -8,24 +8,27 @@ class ItemsLessons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.all(5),
-      height: 100,
-      width: 300,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(15),
-        color: Colors.indigo.shade400,
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(15.0),
-            child: Text(title,
-            style: const TextStyle(fontSize: 20,color: Colors.white,fontStyle: FontStyle.italic, fontWeight: FontWeight.bold),
+    return InkWell(
+      onTap: () {},
+      child: Container(
+        margin: const EdgeInsets.all(10.0),
+        height: 100,
+        width: 300,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(15),
+          color: Colors.indigo.shade400,
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(15.0),
+              child: Text(title,
+              style: const TextStyle(fontSize: 20,color: Colors.white,fontStyle: FontStyle.italic, fontWeight: FontWeight.bold),
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
