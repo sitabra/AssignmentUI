@@ -192,6 +192,7 @@ class _HomePageState extends State<HomePage> {
                             borderRadius: BorderRadius.circular(10),),
                           child: const Text("Join Now"),
                           onPressed: (){
+
                           },
                         )
                       ],
