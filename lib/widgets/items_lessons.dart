@@ -14,13 +14,16 @@ class ItemsLessons extends StatelessWidget {
       width: 300,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15),
-        color: Colors.indigo,
+        color: Colors.indigo.shade400,
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
-          Text(title,
-          style: const TextStyle(fontSize: 20,color: Colors.white,fontStyle: FontStyle.italic, fontWeight: FontWeight.bold),
+          Padding(
+            padding: const EdgeInsets.all(15.0),
+            child: Text(title,
+            style: const TextStyle(fontSize: 20,color: Colors.white,fontStyle: FontStyle.italic, fontWeight: FontWeight.bold),
+            ),
           ),
         ],
       ),
