@@ -11,7 +11,7 @@ class ItemsLessons extends StatelessWidget {
     return InkWell(
       onTap: () {},
       child: Container(
-        margin: const EdgeInsets.all(10.0),
+        margin: const EdgeInsets.all(5.0),
         height: 100,
         width: 300,
         decoration: BoxDecoration(

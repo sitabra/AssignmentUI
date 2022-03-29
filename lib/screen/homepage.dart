@@ -14,6 +14,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.white,
+
         ///app bar
         appBar: AppBar(
           elevation: 0,
@@ -21,6 +22,7 @@ class _HomePageState extends State<HomePage> {
           foregroundColor: Colors.black,
           leading: const Icon(Icons.menu),
         ),
+
         ///body content
         body: SingleChildScrollView(
           child: Column(
@@ -32,7 +34,7 @@ class _HomePageState extends State<HomePage> {
               lessonsItems(context),
               challenges(),
               challengeItems(context),
-              tryItems(context),
+              //tryItems(context),
               //tryingItems(),
             ],
           ),
@@ -45,8 +47,12 @@ class _HomePageState extends State<HomePage> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: const [
-          Text( 'Hi John', style: TextStyle(fontSize: 32),),
-          SizedBox( height: 10,
+          Text(
+            'Hi John',
+            style: TextStyle(fontSize: 32),
+          ),
+          SizedBox(
+            height: 10,
           ),
           Text(
             'You have completed\n6 lessons this week',
@@ -70,7 +76,8 @@ class _HomePageState extends State<HomePage> {
       child: GridView.builder(
           primary: false,
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 4,),
+            crossAxisCount: 4,
+          ),
           itemCount: 4,
           itemBuilder: (BuildContext context, int index) {
             return const GridItem(
@@ -84,8 +91,11 @@ class _HomePageState extends State<HomePage> {
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children:  const [
-          Text('Today\'s lessons', style: TextStyle(fontSize: 15),),
+        children: const [
+          Text(
+            'Today\'s lessons',
+            style: TextStyle(fontSize: 15),
+          ),
         ],
       ),
     );
@@ -97,10 +107,9 @@ class _HomePageState extends State<HomePage> {
       child: ListView.builder(
           itemCount: 5,
           scrollDirection: Axis.horizontal,
-          itemBuilder: (context , index) {
+          itemBuilder: (context, index) {
             return const ItemsLessons(title: 'Greetings');
-          }
-      ),
+          }),
     );
   }
 
@@ -124,87 +133,73 @@ class _HomePageState extends State<HomePage> {
 
   Widget challengeItems(BuildContext context) {
     return SizedBox(
-        child: ListView.builder(
-            itemCount: 10,
-            physics: const NeverScrollableScrollPhysics(),
-            shrinkWrap: true,
-            itemBuilder: (context, index) => Container(
-              width: MediaQuery.of(context).size.width,
-              padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
-              child: Card(
-                elevation: 1.0,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10.0),
-                ),
-                child: Container(
-                  width: MediaQuery.of(context).size.width,
-                  padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          const SizedBox(
-                            width: 50,
-                            height: 65,
-                            child: CircleAvatar(
-                              radius: 5,
-                            ),
-                          ),
-                          const SizedBox(
-                            width: 5.0 ,),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 20.0),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: const [
-                                Text("10 Days Challenge", style: TextStyle(color: Colors.black54,
-                                    fontSize: 15, fontWeight: FontWeight.bold),),
-                                SizedBox(height: 5,),
-                                Text("Immediate Level", style: TextStyle(color: Colors.black54,
-                                    fontSize: 12),),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                      Container(
-                        alignment: Alignment.center,
-                        padding: const EdgeInsets.symmetric(horizontal: 0.0, vertical: 20.0),
-                        child: FlatButton(
-                          onPressed: () {
-                            showDialog(context: context, builder: (context){
-                              return AlertDialog(
-                                title: Text("Confirm"),
-                                actions: [
-                                  TextButton(
-                                    child: Text("OK"),
-                                    onPressed: () {
-                                      Navigator.pop(context);
-                                    },
-                                  ),
-                                ],
-                              );
-                            });
-                          },
-                          color: Colors.orange,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          child: const Text('Join now',
-                            style: TextStyle(
-                              color: Colors.white,),),
+      child: ListView.builder(
+          itemCount: 10,
+          physics: const NeverScrollableScrollPhysics(),
+          shrinkWrap: true,
+          itemBuilder: (context, index) => Container(
+                width: MediaQuery.of(context).size.width,
+                margin: EdgeInsets.symmetric(horizontal: 12.0, vertical: 6.0),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(10),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.shade300,
+                        offset: const Offset(
+                          5.0,
+                          5.0,
                         ),
-                      ),
-                    ],
-                  ),
+                        blurRadius: 10.0,
+                        spreadRadius: 2.0,
+                      ), //BoxShadow
+                      const BoxShadow(
+                        color: Colors.white,
+                        offset: Offset(0.0, 0.0),
+                        blurRadius: 0.0,
+                        spreadRadius: 0.0,
+                      ), //BoxShadow
+                    ]
+                ),
+                child: Row(
+                  children: [
+                    const CircleAvatar(
+                      backgroundColor: Colors.red,
+                    ),
+                    const SizedBox(
+                      width: 30,
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children:  [
+                        const Text(
+                          "10-days Challenge",
+                          style: TextStyle(fontSize: 20),
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        const Text("Intermediate level",
+                            style: TextStyle(fontSize: 12)),
+                        const SizedBox(
+                          height: 5,
+                        ),
+                        FlatButton(
+                          color: Colors.orange.shade400,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10),),
+                          child: const Text("Join Now"),
+                          onPressed: (){
+                          },
+                        )
+                      ],
+                    )
+                  ],
                 ),
               ),
-            )
-        ),
+      ),
     );
   }
 
@@ -212,17 +207,23 @@ class _HomePageState extends State<HomePage> {
     return Container(
       child: Column(
         children: [
-          const Text("10 days challenge",
+          const Text(
+            "10 days challenge",
             style: TextStyle(
                 fontSize: 19,
                 fontWeight: FontWeight.bold,
-                color: Colors.black54),),
-          const SizedBox(height: 5,),
-          const Text("Immediate Level",
-            style: TextStyle(
-                fontSize: 12,
-                color: Colors.black54),),
-          const SizedBox(height: 9,),
+                color: Colors.black54),
+          ),
+          const SizedBox(
+            height: 5,
+          ),
+          const Text(
+            "Immediate Level",
+            style: TextStyle(fontSize: 12, color: Colors.black54),
+          ),
+          const SizedBox(
+            height: 9,
+          ),
           Container(
             margin: const EdgeInsets.all(10),
             child: GestureDetector(
@@ -230,23 +231,27 @@ class _HomePageState extends State<HomePage> {
                 print("Pressed");
               },
               child: const Center(
-                child: Text('Join now',
+                child: Text(
+                  'Join now',
                   style: TextStyle(
-                    color: Colors.white,),),),
+                    color: Colors.white,
+                  ),
+                ),
+              ),
             ),
             height: 40,
             width: 100,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(12),
-              color: Colors.orangeAccent,),
+              color: Colors.orangeAccent,
+            ),
           ),
         ],
       ),
       height: 120,
       width: double.infinity,
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(12),
-          color: Colors.white),
+          borderRadius: BorderRadius.circular(12), color: Colors.white),
       margin: const EdgeInsets.all(10),
       padding: const EdgeInsets.all(5),
     );
@@ -278,5 +283,4 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
-
 }

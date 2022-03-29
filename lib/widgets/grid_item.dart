@@ -17,7 +17,24 @@ class GridItem extends StatelessWidget {
           width: 80,
           height: 100,
           decoration: BoxDecoration(
-            border: Border.all(),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.shade300,
+                  offset: const Offset(
+                    5.0,
+                    5.0,
+                  ),
+                  blurRadius: 5.0,
+                  spreadRadius: 1.0,
+                ), //BoxShadow
+                const BoxShadow(
+                  color: Colors.white,
+                  offset: Offset(0.0, 0.0),
+                  blurRadius: 0.0,
+                  spreadRadius: 0.0,
+                ), //BoxShadow
+              ],
+            //border: Border.all(),
             borderRadius: BorderRadius.circular(12),),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
