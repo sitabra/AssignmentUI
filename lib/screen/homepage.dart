@@ -31,9 +31,9 @@ class _HomePageState extends State<HomePage> {
               lessonsText(),
               lessonsItems(context),
               challenges(),
-              //challengeItems(),
+              challengeItems(context),
               //tryItems(context),
-              tryingItems(context),
+              //tryingItems(),
             ],
           ),
         ));
@@ -122,30 +122,75 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget challengeItems() {
-    return ListView.builder(
-      itemCount: 7,
-      physics: const NeverScrollableScrollPhysics(),
-      shrinkWrap: true,
-      itemBuilder: (context, index) => Padding(
-        padding: const EdgeInsets.all(2.0),
-        child: ListTile(
-          shape: RoundedRectangleBorder(
-            side: BorderSide(
-              color: Colors.green.shade300,
-            ),
-            borderRadius: BorderRadius.circular(20.0),
-          ),
-          hoverColor: Colors.blue,
-          tileColor: Colors.black54,
-          style: ListTileStyle.drawer,
-          contentPadding: const EdgeInsets.all(5),
-          leading: const CircleAvatar(),
-          title: const Text(" 10 Days Challenge"),
-          subtitle: Text('Level $index'),
-          onTap: () {},
+  Widget challengeItems(BuildContext context) {
+    return SizedBox(
+        child: ListView.builder(
+            itemCount: 10,
+            physics: const NeverScrollableScrollPhysics(),
+            shrinkWrap: true,
+            itemBuilder: (context, index) => Container(
+              width: MediaQuery.of(context).size.width,
+              padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
+              child: Card(
+                elevation: 1.0,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+                child: Container(
+                  width: MediaQuery.of(context).size.width,
+                  padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          const SizedBox(
+                            width: 50,
+                            height: 65,
+                            child: CircleAvatar(
+                              radius: 5,
+                            ),
+                          ),
+                          const SizedBox(
+                            width: 5.0 ,),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: const [
+                                Text("10 Days Challenge", style: TextStyle(color: Colors.black54,
+                                    fontSize: 15, fontWeight: FontWeight.bold),),
+                                SizedBox(height: 5,),
+                                Text("Immediate Level", style: TextStyle(color: Colors.black54,
+                                    fontSize: 12),),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                      Container(
+                        alignment: Alignment.center,
+                        padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+                        child: FlatButton(
+                          onPressed: () {},
+                          color: Colors.orange,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: const Text('Join now',
+                            style: TextStyle(
+                              color: Colors.white,),),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            )
         ),
-      ),
     );
   }
 
@@ -172,8 +217,8 @@ class _HomePageState extends State<HomePage> {
               },
               child: const Center(
                 child: Text('Join now',
-                style: TextStyle(
-                  color: Colors.white,),),),
+                  style: TextStyle(
+                    color: Colors.white,),),),
             ),
             height: 40,
             width: 100,
@@ -193,71 +238,31 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget tryingItems(BuildContext context) {
-    return SizedBox(
-        child: ListView.builder(
-            itemCount: 10,
-            physics: const NeverScrollableScrollPhysics(),
-            shrinkWrap: true,
-            itemBuilder: (BuildContext context, int index) => Container(
-              width: MediaQuery.of(context).size.width,
-              padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
-              child: Card(
-
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10.0),
-                ),
-                child: Container(
-                  width: MediaQuery.of(context).size.width,
-                  padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Container(
-                            width: 5,
-                            height: 5,
-                            color: Colors.green,
-                            child: const CircleAvatar(
-                              backgroundColor: Colors.green,
-                              foregroundColor: Colors.green,
-                            ),
-                          ),
-                          SizedBox(
-                            width: 5.0 ,),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: const [
-                              Text("10 Days Challenge", style: TextStyle(color: Colors.black54, fontSize: 15,
-                                  fontWeight: FontWeight.bold),),
-
-                            ],
-                          ),
-                        ],
-                      ),
-                      Container(
-                        alignment: Alignment.center,
-                        padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
-                        child: FlatButton(
-                          onPressed: () {},
-                          color: Colors.orange,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                          child: const Text('Join now',
-                            style: TextStyle(
-                              color: Colors.white,),),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            )
+  Widget tryingItems() {
+    return ListView.builder(
+      itemCount: 7,
+      physics: const NeverScrollableScrollPhysics(),
+      shrinkWrap: true,
+      itemBuilder: (context, index) => Padding(
+        padding: const EdgeInsets.all(2.0),
+        child: ListTile(
+          shape: RoundedRectangleBorder(
+            side: BorderSide(
+              color: Colors.green.shade300,
+            ),
+            borderRadius: BorderRadius.circular(20.0),
+          ),
+          hoverColor: Colors.blue,
+          tileColor: Colors.black54,
+          style: ListTileStyle.drawer,
+          contentPadding: const EdgeInsets.all(5),
+          leading: const CircleAvatar(),
+          title: const Text(" 10 Days Challenge"),
+          subtitle: Text('Level $index'),
+          onTap: () {},
         ),
+      ),
     );
   }
+
 }
