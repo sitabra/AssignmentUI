@@ -39,7 +39,9 @@ class GridItem extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              icon,
+              Image.network("https://t3.ftcdn.net/jpg/01/24/51/90/360_F_124519029_D6FnFB2bHVxOoWThvUQhqU6LogBz17F4.jpg",
+                height: 50,width: 50,fit: BoxFit.contain,),
+              //icon,
               const SizedBox(
                 height: 4,
               ),

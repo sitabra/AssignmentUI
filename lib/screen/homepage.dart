@@ -44,26 +44,32 @@ class _HomePageState extends State<HomePage> {
   Widget greeting() {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: const [
-          Text(
-            'Hi John',
-            style: TextStyle(fontSize: 32),
+      child: Row(
+        children: [
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: const [
+              Text(
+                'Hi John',
+                style: TextStyle(fontSize: 32),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Text(
+                'You have completed\n6 lessons this week',
+                style: TextStyle(fontSize: 14),
+              ),
+              Divider(
+                color: Colors.grey,
+              )
+            ],
           ),
-          SizedBox(
-            height: 10,
-          ),
-          Text(
-            'You have completed\n6 lessons this week',
-            style: TextStyle(fontSize: 14),
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          Divider(
-            color: Colors.grey,
-          )
+          const SizedBox(width: 40,),
+          Image.network("https://www.freevector.com/uploads/vector/preview/30715/Hiking_On_Summer.jpg",
+            height: 150,
+          width: 150,
+          fit: BoxFit.contain,),
         ],
       ),
     );
@@ -76,8 +82,7 @@ class _HomePageState extends State<HomePage> {
       child: GridView.builder(
           primary: false,
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 4,
-          ),
+            crossAxisCount: 4,),
           itemCount: 4,
           itemBuilder: (BuildContext context, int index) {
             return const GridItem(
@@ -94,7 +99,7 @@ class _HomePageState extends State<HomePage> {
         children: const [
           Text(
             'Today\'s lessons',
-            style: TextStyle(fontSize: 15),
+            style: TextStyle(fontSize: 15,fontWeight: FontWeight.bold),
           ),
         ],
       ),
@@ -123,7 +128,7 @@ class _HomePageState extends State<HomePage> {
           children: const [
             Text(
               'Challenges',
-              style: TextStyle(fontSize: 15),
+              style: TextStyle(fontSize: 15,fontWeight: FontWeight.bold),
             ),
           ],
         ),
@@ -165,24 +170,25 @@ class _HomePageState extends State<HomePage> {
                 ),
                 child: Row(
                   children: [
-                    const CircleAvatar(
-                      backgroundColor: Colors.red,
-                    ),
+                    Image.network("https://www.creativefabrica.com/wp-content/uploads/2020/09/01/Todo-list-and-time-management-Graphics-5217842-1.jpg",
+                    height: 100,
+                    width: 100,
+                    fit: BoxFit.contain,),
                     const SizedBox(
-                      width: 30,
+                      width: 10,
                     ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children:  [
                         const Text(
-                          "10-days Challenge",
-                          style: TextStyle(fontSize: 20),
+                          "10-days challenge",
+                          style: TextStyle(fontSize: 20,fontWeight: FontWeight.w400),
                         ),
                         const SizedBox(
                           height: 10,
                         ),
-                        const Text("Intermediate level",
-                            style: TextStyle(fontSize: 12)),
+                        Text("Immediate level $index",
+                            style: const TextStyle(fontSize: 12)),
                         const SizedBox(
                           height: 5,
                         ),
@@ -190,7 +196,7 @@ class _HomePageState extends State<HomePage> {
                           color: Colors.orange.shade400,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10),),
-                          child: const Text("Join Now"),
+                          child: const Text("Join Now", style: TextStyle(color: Colors.white),),
                           onPressed: (){
 
                           },
