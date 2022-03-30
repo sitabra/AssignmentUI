@@ -38,10 +38,10 @@ class ItemsLessons extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.end,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Image.network("https://img.freepik.com/free-vector/multicolored-abstract-background_23-2148463672.jpg?w=2000",
-              height: 147,
-              width: 400,
-              fit: BoxFit.cover,),
+            const Image(
+              height: 130,
+              width: 500,
+              image: NetworkImage("https://img.freepik.com/free-vector/multicolored-abstract-background_23-2148463672.jpg?w=2000"),),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
               child: Text(title,

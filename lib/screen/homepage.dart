@@ -10,6 +10,12 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+
+  List<String> imageList = ["https://wallpaperaccess.com/full/5138.jpg",
+    "https://swall.teahub.io/photos/small/42-426305_dark-abstract-wallpaper-4k.jpg",
+    "https://wallpaperaccess.com/full/25557.jpg","https://wallpaperaccess.com/full/25559.jpg",
+    "https://wallpaper-mania.com/wp-content/uploads/2018/09/High_resolution_wallpaper_background_ID_77700002072.jpg"];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,7 +41,7 @@ class _HomePageState extends State<HomePage> {
               challenges(),
               challengeItems(context),
               //tryItems(context),
-              //tryingItems(),
+              tryingItems(context),
             ],
           ),
         ));
@@ -144,7 +150,7 @@ class _HomePageState extends State<HomePage> {
           shrinkWrap: true,
           itemBuilder: (context, index) => Container(
                 width: MediaQuery.of(context).size.width,
-                margin: EdgeInsets.symmetric(horizontal: 12.0, vertical: 6.0),
+                margin: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 6.0),
                 padding:
                     const EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
                 decoration: BoxDecoration(
@@ -152,13 +158,13 @@ class _HomePageState extends State<HomePage> {
                   borderRadius: BorderRadius.circular(10),
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.grey.shade300,
+                        color: Colors.grey.shade200,
                         offset: const Offset(
                           5.0,
                           5.0,
                         ),
-                        blurRadius: 10.0,
-                        spreadRadius: 2.0,
+                        blurRadius: 2.0,
+                        spreadRadius: 1.0,
                       ), //BoxShadow
                       const BoxShadow(
                         color: Colors.white,
@@ -197,9 +203,7 @@ class _HomePageState extends State<HomePage> {
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10),),
                           child: const Text("Join Now", style: TextStyle(color: Colors.white),),
-                          onPressed: (){
-
-                          },
+                          onPressed: (){},
                         )
                       ],
                     )
@@ -264,30 +268,98 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget tryingItems() {
-    return ListView.builder(
-      itemCount: 7,
-      physics: const NeverScrollableScrollPhysics(),
-      shrinkWrap: true,
-      itemBuilder: (context, index) => Padding(
-        padding: const EdgeInsets.all(2.0),
-        child: ListTile(
-          shape: RoundedRectangleBorder(
-            side: BorderSide(
-              color: Colors.green.shade300,
+  Widget tryingItems(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.all(5.0),
+      height: 230,
+      child: ListView.builder(
+        itemCount: 5,
+        scrollDirection: Axis.horizontal,
+        itemBuilder: (context, index) {
+          return Padding(
+            padding: const EdgeInsets.all(0.0),
+            child: Stack(
+              children: [
+                Container(
+                  width: 300,
+                  height: 200,
+                  color: Colors.white,
+                ), //Container
+                Positioned(
+                  left: 20,
+                  right: 40,
+                  top: 10,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.shade300,
+                          offset: const Offset(
+                            5.0,
+                            5.0,
+                          ),
+                          blurRadius: 5.0,
+                          spreadRadius: 1.0,
+                        ), //BoxShadow
+                        const BoxShadow(
+                          color: Colors.white,
+                          offset: Offset(0.0, 0.0),
+                          blurRadius: 0.0,
+                          spreadRadius: 0.0,
+                        ), //BoxShadow
+                      ],
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.shade300,
+                            offset: const Offset(
+                              5.0,
+                              5.0,
+                            ),
+                            blurRadius: 5.0,
+                            spreadRadius: 1.0,
+                          ), //BoxShadow
+                          const BoxShadow(
+                            color: Colors.white,
+                            offset: Offset(0.0, 0.0),
+                            blurRadius: 0.0,
+                            spreadRadius: 0.0,
+                          ), //BoxShadow
+                        ],
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                      child: Column(
+                        children: const [
+                          Image(
+                            height: 200,
+                            width: double.infinity,
+                            image: NetworkImage("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQD_SwU4K1-TYglQd56Ii_R4YqJvt9zR8ZaSQ&usqp=CAU"),),
+                        ],
+                      ),
+                    ),
+                    height: 200,
+                    width: double.infinity,
+                  ),
+                ),
+                Positioned(
+                  top: 150,
+                  left: 50,
+                  right: 20,
+                  child: Container(
+                    width: 50,
+                    height: 50,
+                    child: const Text("Greetings",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 20),),
+                  ),
+                ),//Container
+              ], //
             ),
-            borderRadius: BorderRadius.circular(20.0),
-          ),
-          hoverColor: Colors.blue,
-          tileColor: Colors.black54,
-          style: ListTileStyle.drawer,
-          contentPadding: const EdgeInsets.all(5),
-          leading: const CircleAvatar(),
-          title: const Text(" 10 Days Challenge"),
-          subtitle: Text('Level $index'),
-          onTap: () {},
-        ),
-      ),
+          );
+        },
+      ), //Stack,
     );
+
   }
 }
