@@ -35,13 +35,14 @@ class _HomePageState extends State<HomePage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               greeting(),
-              categoryItems(context),
+              //categoryItems(context),
+              tryItems(context),
               lessonsText(),
               lessonsItems(context),
               challenges(),
               challengeItems(context),
-              //tryItems(context),
-              tryingItems(context),
+
+              //tryingItems(context),
             ],
           ),
         ));
@@ -97,6 +98,136 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
+  Widget tryItems(BuildContext context) {
+    return SizedBox(
+        child: GridView(
+          primary: false,
+          shrinkWrap: true,
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 4,
+          ),
+          children: [
+            Container(
+                decoration: BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.shade300,
+                      offset: const Offset(
+                        5.0,
+                        5.0,
+                      ),
+                      blurRadius: 5.0,
+                      spreadRadius: 1.0,
+                    ), //BoxShadow
+                    const BoxShadow(
+                      color: Colors.white,
+                      offset: Offset(0.0, 0.0),
+                      blurRadius: 0.0,
+                      spreadRadius: 0.0,
+                    ), //BoxShadow
+                  ],
+                  borderRadius: BorderRadius.circular(12),),
+                margin: EdgeInsets.all(10),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Image.network('https://media.istockphoto.com/vectors/headset-icon-music-templates-vector-id1187826963?k=20&m=1187826963&s=170667a&w=0&h=Rd1j0eqOpObWUU_JpcT-yKqHAMQrim99y44-DU9SPBk=',
+                      height: 50,width: 50,fit: BoxFit.contain,),
+                    const Text("Listening"),
+                  ],
+                )),
+            Container(
+                decoration: BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.shade300,
+                      offset: const Offset(
+                        5.0,
+                        5.0,
+                      ),
+                      blurRadius: 5.0,
+                      spreadRadius: 1.0,
+                    ), //BoxShadow
+                    const BoxShadow(
+                      color: Colors.white,
+                      offset: Offset(0.0, 0.0),
+                      blurRadius: 0.0,
+                      spreadRadius: 0.0,
+                    ), //BoxShadow
+                  ],
+                  borderRadius: BorderRadius.circular(12),),
+                margin: EdgeInsets.all(10),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Image.network('https://icons.veryicon.com/png/o/internet--web/social-app-icon/introduction-to-speech.png',
+                      height: 50,width: 50,fit: BoxFit.contain,),
+                    const Text("Speaking"),
+                  ],
+                )),
+            Container(
+                decoration: BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.shade300,
+                      offset: const Offset(
+                        5.0,
+                        5.0,
+                      ),
+                      blurRadius: 5.0,
+                      spreadRadius: 1.0,
+                    ), //BoxShadow
+                    const BoxShadow(
+                      color: Colors.white,
+                      offset: Offset(0.0, 0.0),
+                      blurRadius: 0.0,
+                      spreadRadius: 0.0,
+                    ), //BoxShadow
+                  ],
+                  borderRadius: BorderRadius.circular(12),),
+                margin: EdgeInsets.all(10),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Image.network('https://cdn-icons-png.flaticon.com/512/3068/3068380.png',
+                      height: 50,width: 50,fit: BoxFit.contain,),
+                    const Text("Reading"),
+                  ],
+                )),
+            Container(
+                decoration: BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.shade300,
+                      offset: const Offset(
+                        5.0,
+                        5.0,
+                      ),
+                      blurRadius: 5.0,
+                      spreadRadius: 1.0,
+                    ), //BoxShadow
+                    const BoxShadow(
+                      color: Colors.white,
+                      offset: Offset(0.0, 0.0),
+                      blurRadius: 0.0,
+                      spreadRadius: 0.0,
+                    ), //BoxShadow
+                  ],
+                  borderRadius: BorderRadius.circular(12),),
+                margin: EdgeInsets.all(10),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Image.network('https://thumbs.dreamstime.com/b/write-document-icon-website-design-desktop-envelopment-development-premium-pack-write-document-vector-thin-line-icon-165365932.jpg',
+                      height: 50,width: 50,fit: BoxFit.contain,),
+                    const Text("Writing"),
+                  ],
+                )),
+          ],
+        )
+    );
+  }
+
   Widget lessonsText() {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
@@ -113,162 +244,6 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget lessonsItems(BuildContext context) {
-    return SizedBox(
-      height: 200,
-      child: ListView.builder(
-          itemCount: 5,
-          scrollDirection: Axis.horizontal,
-          itemBuilder: (context, index) {
-            return const ItemsLessons(title: 'Greetings');
-          }),
-    );
-  }
-
-  Widget challenges() {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Container(
-        margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: const [
-            Text(
-              'Challenges',
-              style: TextStyle(fontSize: 15,fontWeight: FontWeight.bold),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget challengeItems(BuildContext context) {
-    return SizedBox(
-      child: ListView.builder(
-          itemCount: 10,
-          physics: const NeverScrollableScrollPhysics(),
-          shrinkWrap: true,
-          itemBuilder: (context, index) => Container(
-                width: MediaQuery.of(context).size.width,
-                margin: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 6.0),
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(10),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey.shade200,
-                        offset: const Offset(
-                          5.0,
-                          5.0,
-                        ),
-                        blurRadius: 2.0,
-                        spreadRadius: 1.0,
-                      ), //BoxShadow
-                      const BoxShadow(
-                        color: Colors.white,
-                        offset: Offset(0.0, 0.0),
-                        blurRadius: 0.0,
-                        spreadRadius: 0.0,
-                      ), //BoxShadow
-                    ]
-                ),
-                child: Row(
-                  children: [
-                    Image.network("https://www.creativefabrica.com/wp-content/uploads/2020/09/01/Todo-list-and-time-management-Graphics-5217842-1.jpg",
-                    height: 100,
-                    width: 100,
-                    fit: BoxFit.contain,),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children:  [
-                        const Text(
-                          "10-days challenge",
-                          style: TextStyle(fontSize: 20,fontWeight: FontWeight.w400),
-                        ),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        Text("Immediate level $index",
-                            style: const TextStyle(fontSize: 12)),
-                        const SizedBox(
-                          height: 5,
-                        ),
-                        FlatButton(
-                          color: Colors.orange.shade400,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10),),
-                          child: const Text("Join Now", style: TextStyle(color: Colors.white),),
-                          onPressed: (){},
-                        )
-                      ],
-                    )
-                  ],
-                ),
-              ),
-      ),
-    );
-  }
-
-  Widget tryItems(BuildContext context) {
-    return Container(
-      child: Column(
-        children: [
-          const Text(
-            "10 days challenge",
-            style: TextStyle(
-                fontSize: 19,
-                fontWeight: FontWeight.bold,
-                color: Colors.black54),
-          ),
-          const SizedBox(
-            height: 5,
-          ),
-          const Text(
-            "Immediate Level",
-            style: TextStyle(fontSize: 12, color: Colors.black54),
-          ),
-          const SizedBox(
-            height: 9,
-          ),
-          Container(
-            margin: const EdgeInsets.all(10),
-            child: GestureDetector(
-              onTap: () {
-                print("Pressed");
-              },
-              child: const Center(
-                child: Text(
-                  'Join now',
-                  style: TextStyle(
-                    color: Colors.white,
-                  ),
-                ),
-              ),
-            ),
-            height: 40,
-            width: 100,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(12),
-              color: Colors.orangeAccent,
-            ),
-          ),
-        ],
-      ),
-      height: 120,
-      width: double.infinity,
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(12), color: Colors.white),
-      margin: const EdgeInsets.all(10),
-      padding: const EdgeInsets.all(5),
-    );
-  }
-
-  Widget tryingItems(BuildContext context) {
     return Container(
       margin: const EdgeInsets.all(5.0),
       height: 230,
@@ -362,4 +337,97 @@ class _HomePageState extends State<HomePage> {
     );
 
   }
+
+  Widget challenges() {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Container(
+        margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: const [
+            Text(
+              'Challenges',
+              style: TextStyle(fontSize: 15,fontWeight: FontWeight.bold),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget challengeItems(BuildContext context) {
+    return SizedBox(
+      child: ListView.builder(
+          itemCount: 10,
+          physics: const NeverScrollableScrollPhysics(),
+          shrinkWrap: true,
+          itemBuilder: (context, index) => Container(
+                width: MediaQuery.of(context).size.width,
+                margin: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 6.0),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(10),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.shade200,
+                        offset: const Offset(
+                          5.0,
+                          5.0,
+                        ),
+                        blurRadius: 2.0,
+                        spreadRadius: 1.0,
+                      ), //BoxShadow
+                      const BoxShadow(
+                        color: Colors.white,
+                        offset: Offset(0.0, 0.0),
+                        blurRadius: 0.0,
+                        spreadRadius: 0.0,
+                      ), //BoxShadow
+                    ]
+                ),
+                child: Row(
+                  children: [
+                    Image.network("https://www.creativefabrica.com/wp-content/uploads/2020/09/01/Todo-list-and-time-management-Graphics-5217842-1.jpg",
+                    height: 100,
+                    width: 100,
+                    fit: BoxFit.contain,),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children:  [
+                        const Text(
+                          "10-days challenge",
+                          style: TextStyle(fontSize: 20,fontWeight: FontWeight.w400),
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        Text("Immediate level $index",
+                            style: const TextStyle(fontSize: 12)),
+                        const SizedBox(
+                          height: 5,
+                        ),
+                        FlatButton(
+                          color: Colors.orange.shade400,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10),),
+                          child: const Text("Join Now", style: TextStyle(color: Colors.white),),
+                          onPressed: (){},
+                        )
+                      ],
+                    )
+                  ],
+                ),
+              ),
+      ),
+    );
+  }
+
+
+
 }
